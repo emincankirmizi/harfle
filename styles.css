@@ -132,14 +132,13 @@ body {
   padding: 0.4rem;
   margin: 0 2px;
   cursor: pointer;
-  text-transform: uppercase;
 }
 
 input[type="text"] {
   width: 240px;
   border: 2px solid #aaa;
   border-radius: 4px;
-  margin: 8px 0;
+  margin: 4px 0;
   outline: none;
   padding: 8px;
   box-sizing: border-box;
