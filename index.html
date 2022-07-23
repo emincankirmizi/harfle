@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="styles.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="uft-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g==" crossorigin="anonymous" referrerpolicy="no-referrer" />  
+</head>
+
+  <body>
+    <div id="main" class="main">
+
+      <div id="title" class="title">
+
+        <h1>Harfle</h1>
+      
+    </div>
+      
+      <div id="game-area">
+
+        <div id="score" class="score">
+            <h2>Skor: 0</h2>
+          </div>
+    
+          <div id="app">
+            <div class="base-timer">
+              <svg
+                class="base-timer__svg"
+                viewBox="0 0 100 100"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g class="base-timer__circle">
+                  <circle
+                    class="base-timer__path-elapsed"
+                    cx="50"
+                    cy="50"
+                    r="45"
+                  ></circle>
+                  <path
+                    id="base-timer-path-remaining"
+                    stroke-dasharray="283"
+                    class="base-timer__path-remaining arc"
+                    d="
+                             M 50, 50
+                             m -45, 0
+                             a 45,45 0 1,0 90,0
+                             a 45,45 0 1,0 -90,0
+                             "
+                  ></path>
+                </g>
+              </svg>
+              <span id="base-timer-label" class="base-timer__label"></span>
+            </div>
+          </div>
+
+          <div id="selected-letter">
+              <h2> Seçilen Harf: A </h2>
+          </div>
+          
+          <div id="correct-answers">
+        </div>
+
+        <div id="answer-area">
+            <input type="text" id="answer-input" maxlength="6" placeholder="Lütfen Cevabınızı Giriniz...">
+            <button id="answer-button">Gönder</button>
+        </div>
+
+<!-- 
+      <div class="buttons">
+        <button onclick="start()" class="start">Start</button>
+        <button onclick="stop()" class="stop">Stop</button>
+        <button onclick="reset()" class="reset">Reset</button>
+      </div>
+    </div> -->
+
+    <div id="keyboard-cont">
+        <div class="first-row">
+            <button class="keyboard-button">q</button>
+            <button class="keyboard-button">w</button>
+            <button class="keyboard-button">e</button>
+            <button class="keyboard-button">r</button>
+            <button class="keyboard-button">t</button>
+            <button class="keyboard-button">y</button>
+            <button class="keyboard-button">u</button>
+            <button class="keyboard-button">ı</button>
+            <button class="keyboard-button">o</button>
+            <button class="keyboard-button">p</button>
+            <button class="keyboard-button">ğ</button>
+            <button class="keyboard-button">ü</button>
+        </div>
+        <div class="second-row">
+            <button class="keyboard-button">a</button>
+            <button class="keyboard-button">s</button>
+            <button class="keyboard-button">d</button>
+            <button class="keyboard-button">f</button>
+            <button class="keyboard-button">g</button>
+            <button class="keyboard-button">h</button>
+            <button class="keyboard-button">j</button>
+            <button class="keyboard-button">k</button>
+            <button class="keyboard-button">l</button>
+            <button class="keyboard-button">ş</button>
+            <button class="keyboard-button">i</button>
+        </div>
+        <div class="third-row">
+            <button class="keyboard-button">⟵</button>
+            <button class="keyboard-button">z</button>
+            <button class="keyboard-button">x</button>
+            <button class="keyboard-button">c</button>
+            <button class="keyboard-button">v</button>
+            <button class="keyboard-button">b</button>
+            <button class="keyboard-button">n</button>
+            <button class="keyboard-button">m</button>
+            <button class="keyboard-button">ö</button>
+            <button class="keyboard-button">ç</button>
+            <button class="keyboard-button">⤾</button>
+        </div>
+
+    </div>
+
+    </div>
+
+    <script src="scripts.js"></script>
+  </body>
+</html>

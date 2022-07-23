@@ -1,0 +1,183 @@
+html,
+body {
+  margin: 0;
+  height: 100%;
+}
+
+body {
+  background: white;
+  box-sizing: border-box;
+  font-family: monospace;
+}
+
+#main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+}
+
+#game-area {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 500px;
+}
+
+#correct-answers {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#answer-area,
+#selected-letter {
+  width: 100%;
+  text-align: center;
+}
+
+.base-timer {
+  position: relative;
+  width: 150px;
+  height: 150px;
+}
+
+/* scaleX(1) = CLOCKWISE, scaleX(-1) = ANTI-CLOCKWISE */
+.base-timer__svg {
+  transform: scaleX(1);
+}
+
+.base-timer__circle {
+  fill: none;
+  stroke: none;
+}
+
+.base-timer__path-elapsed {
+  stroke-width: 7px;
+  stroke: grey;
+}
+
+.base-timer__path-remaining {
+  stroke-width: 7px;
+  stroke-linecap: round;
+  transform: rotate(90deg);
+  transform-origin: center;
+  transition: 1s linear all;
+  fill-rule: nonzero;
+  stroke: currentColor;
+}
+
+.base-timer__path-remaining.arc {
+  color: rgba(179, 48, 102, 0.973);
+}
+
+.base-timer__label {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 48px;
+}
+
+.word {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.square {
+  height: 50px;
+  width: 50px;
+  border-color: #555;
+  border-style: solid;
+  border-color: #555;
+  margin: 2px 2px;
+  font-size: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#keyboard-cont {
+  margin: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#keyboard-cont div {
+  display: flex;
+}
+
+.second-row {
+  margin: 0.5rem 0;
+}
+
+.keyboard-button {
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 0.4rem;
+  margin: 0 2px;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+input[type="text"] {
+  width: 200px;
+  border: 2px solid #aaa;
+  border-radius: 4px;
+  margin: 8px 0;
+  outline: none;
+  padding: 8px;
+  box-sizing: border-box;
+  transition: 0.3s;
+}
+
+input[type="text"]:focus {
+  border-color: dodgerBlue;
+  box-shadow: 0 0 8px 0 dodgerBlue;
+}
+
+#answer-button {
+  background-color: dodgerBlue;
+  color: #fff;
+  border-radius: 4px;
+  border: 2px solid #aaa;
+  box-sizing: border-box;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.popup-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: gray;
+  opacity: 0.5;
+}
+
+.popup-content {
+  padding: 12px;
+  text-align: center;
+  color: black;
+  opacity: 1;
+  z-index: 999;
+  width: 300px;
+  background: #fff;
+  border-radius: 2px;
+  position: absolute;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+.close {
+  margin-top: 8px;
+}
