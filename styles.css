@@ -18,6 +18,17 @@ body {
   height: 100%;
 }
 
+#title {
+  text-align: center;
+  width: 100%;
+}
+
+#title > p {
+  font-size: 18px;
+  margin: 9px 0px;
+  font-weight: bold;
+}
+
 #game-area {
   flex-grow: 1;
   display: flex;
