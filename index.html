@@ -1,87 +1,72 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"
-    />
-    <meta charset="uft-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">	<meta charset="uft-8">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"
-      integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css"
-      integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g==" crossorigin="anonymous" referrerpolicy="no-referrer" />  
     <link rel="stylesheet" href="styles.css" />
-  </head>
+</head>
 
   <body>
     <div id="main" class="main">
+
       <div id="title" class="title">
+
         <h1>Harfler</h1>
-      </div>
-
+      
+    </div>
+      
       <div id="game-area">
-        <div id="score" class="score">
-          <h2>Skor: 0</h2>
-        </div>
 
-        <div id="app">
-          <div class="base-timer">
-            <svg
-              class="base-timer__svg"
-              viewBox="0 0 100 100"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <g class="base-timer__circle">
-                <circle
-                  class="base-timer__path-elapsed"
-                  cx="50"
-                  cy="50"
-                  r="45"
-                ></circle>
-                <path
-                  id="base-timer-path-remaining"
-                  stroke-dasharray="283"
-                  class="base-timer__path-remaining arc"
-                  d="
+        <div id="score" class="score">
+            <h2>Skor: 0</h2>
+          </div>
+    
+          <div id="app">
+            <div class="base-timer">
+              <svg
+                class="base-timer__svg"
+                viewBox="0 0 100 100"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g class="base-timer__circle">
+                  <circle
+                    class="base-timer__path-elapsed"
+                    cx="50"
+                    cy="50"
+                    r="45"
+                  ></circle>
+                  <path
+                    id="base-timer-path-remaining"
+                    stroke-dasharray="283"
+                    class="base-timer__path-remaining arc"
+                    d="
                              M 50, 50
                              m -45, 0
                              a 45,45 0 1,0 90,0
                              a 45,45 0 1,0 -90,0
                              "
-                ></path>
-              </g>
-            </svg>
-            <span id="base-timer-label" class="base-timer__label"></span>
+                  ></path>
+                </g>
+              </svg>
+              <span id="base-timer-label" class="base-timer__label"></span>
+            </div>
           </div>
-        </div>
 
-        <div id="selected-letter">
-          <h2>Seçilen Harf: A</h2>
+          <div id="selected-letter">
+              <h2> Seçilen Harf: A </h2>
+          </div>
+          
+          <div id="correct-answers">
         </div>
-
-        <div id="correct-answers"></div>
 
         <div id="answer-area">
-          <input
-            type="text"
-            id="answer-input"
-            maxlength="6"
-            placeholder="Lütfen Cevabınızı Giriniz..."
-          />
-          <button id="answer-button">Gönder</button>
+            <input type="text" id="answer-input" maxlength="6" placeholder="Lütfen Cevabınızı Giriniz...">
+            <button id="answer-button">Gönder</button>
         </div>
 
-        <!-- 
+<!-- 
       <div class="buttons">
         <button onclick="start()" class="start">Start</button>
         <button onclick="stop()" class="stop">Stop</button>
@@ -89,7 +74,7 @@
       </div>
     </div> -->
 
-        <!-- <div id="keyboard-cont">
+    <div id="keyboard-cont">
         <div class="first-row">
             <button class="keyboard-button">q</button>
             <button class="keyboard-button">w</button>
@@ -129,8 +114,10 @@
             <button class="keyboard-button">ö</button>
             <button class="keyboard-button">ç</button>
             <button class="keyboard-button">⤾</button>
-        </div> -->
-      </div>
+        </div>
+
+    </div>
+
     </div>
 
     <script src="scripts.js"></script>
