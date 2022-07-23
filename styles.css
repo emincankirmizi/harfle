@@ -123,6 +123,9 @@ body {
 }
 
 .keyboard-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
   font-size: 1rem;
   font-weight: 700;
   padding: 0.4rem;
