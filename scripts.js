@@ -77,7 +77,7 @@ function timeIsUp() {
         score = 0;
         answers = [];
         timeLabel.innerHTML = formatTime(TIME_LIMIT);
-        $('#score > h2').text(`Skor: ${score}`);
+        $('#score > h3').text(`Skor: ${score}`);
         setRandomLetter(alphabet);
     });
 }
@@ -210,7 +210,7 @@ const sendAnswer = () => {
             $('#answer-input').val("")
 
             score += 1;
-            $('#score > h2').text(`Skor: ${score}`);
+            $('#score > h3').text(`Skor: ${score}`);
 
             reset();
             startTimer();
@@ -221,6 +221,6 @@ const setRandomLetter = (answerArray, randomIndex) => {
     randomIndex = Math.floor(Math.random() * answerArray.length);
     randomLetter = answerArray[randomIndex];
 
-    $('#selected-letter > h2').text(`Seçilen Harf: ${randomLetter.toLowerCase()}`);
+    $('#selected-letter > h3').text(`Seçilen Harf: ${randomLetter.toLowerCase()}`);
     return randomIndex;
 };

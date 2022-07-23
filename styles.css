@@ -7,7 +7,8 @@ body {
 body {
   background: white;
   box-sizing: border-box;
-  font-family: monospace;
+  font-family: "Brush Script MT", cursive;
+  /* font-size: 16px; */
 }
 
 #main {
@@ -107,30 +108,47 @@ body {
 }
 
 #keyboard-cont {
-  margin: 1rem 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  margin: 4px 8px 0px;
+  user-select: none;
+  width: 100%;
 }
 
-#keyboard-cont div {
+.first-row,
+.third-row {
   display: flex;
+  width: 100%;
+  margin: 0 2px 8px;
+  touch-action: manipulation;
 }
 
 .second-row {
+  display: flex;
+  width: 100%;
+  touch-action: manipulation;
   margin: 0.5rem 0;
 }
 
+.spacer {
+  flex: 0.5;
+}
+
 .keyboard-button {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  touch-action: manipulation;
-  font-size: 1rem;
-  font-weight: 700;
-  padding: 0.5rem;
-  margin: 0 2px;
+  text-transform: uppercase;
+  font-family: inherit;
+  font-weight: bold;
+  border: 2px solid black;
+  padding: 0;
+  margin: 0 6px 0 0;
+  height: 36px;
+  border-radius: 4px;
   cursor: pointer;
+  user-select: none;
+  background-color: white;
+  color: black;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 input[type="text"] {
@@ -142,6 +160,8 @@ input[type="text"] {
   padding: 8px;
   box-sizing: border-box;
   transition: 0.3s;
+  /* height: 32px; */
+  font-size: 16px;
 }
 
 input[type="text"]:focus {
@@ -158,6 +178,7 @@ input[type="text"]:focus {
   padding: 8px;
   cursor: pointer;
   width: 80px;
+  font-size: 16px;
 }
 
 .popup-overlay {
@@ -183,4 +204,12 @@ input[type="text"]:focus {
 
 .close {
   margin-top: 8px;
+}
+
+@media only screen and (max-device-width: 375px) {
+  .square {
+    height: 20px;
+    width: 20px;
+    font-size: 16px;
+  }
 }
