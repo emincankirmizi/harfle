@@ -113,6 +113,7 @@ $(function () {
             myEl.attr(`inputmode`, ``);
         }, 1);
     });
+
     $(document).on(`blur`, `input`, function () {
         $(this).attr(`inputmode`, `none`);
     });
