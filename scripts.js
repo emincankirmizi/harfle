@@ -107,9 +107,6 @@ function setCircleDasharray() {
 }
 
 $(function () {
-    $("input, textarea").focus(function () { $(document.body).addClass('when-keyboard-showing'); });
-    $("input, textarea").blur(function () { $(document.body).removeClass('when-keyboard-showing'); });
-
     $('#answer-input').keypress((e) => {
         const key = e.which;
 

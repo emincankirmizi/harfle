@@ -42,6 +42,11 @@ body {
   text-align: center;
 }
 
+#answer-area {
+  position: fixed;
+  bottom: 0px;
+}
+
 .base-timer {
   position: relative;
   width: 100px;
@@ -186,11 +191,4 @@ input[type="text"]:focus {
 
 .close {
   margin-top: 8px;
-}
-
-@media (max-width: 550px) {
-  body.when-keyboard-showing .header {
-    height: 0;
-    padding: 0;
-  }
 }
