@@ -58,7 +58,7 @@ window.addEventListener("load", () => {
 
 function timeIsUp() {
     clearInterval(timerInterval);
-    console.timeEnd('test');
+
     $("#answer-input").val("");
     $("#answer-input").blur();
 
@@ -89,7 +89,7 @@ function timeIsUp() {
     $(".share").on("click", async function () {
         const text = `Harf Zamanı Sonuç
 Level: ${level}
-Son kelime: ${answers.pop()}
+Son kelime: ${answers[answers.length - 1]}
 Skor: ${score}
 Seçili harf: ${randomLetters.join(" - ")}
 https://emincankirmizi.github.io/harfle/
@@ -274,8 +274,6 @@ const setRandomLetter = (answerArray, randomIndex) => {
         randomLetters.push(randomLetter);
         randomIndexes.push(randomIndex)
     }
-
-    console.log(randomLetters)
 
     $('#selected-letter > p').text(`Seçilen Harf: ${randomLetters.join(" - ").toLowerCase()}`);
 
