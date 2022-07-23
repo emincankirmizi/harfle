@@ -107,16 +107,8 @@ function setCircleDasharray() {
 }
 
 $(function () {
-    $(document).on(`focus`, `input`, function () {
-        myEl = $(this);
-        setTimeout(function () {
-            myEl.attr(`inputmode`, ``);
-        }, 1);
-    });
-
-    $(document).on(`blur`, `input`, function () {
-        $(this).attr(`inputmode`, `none`);
-    });
+    $("input, textarea").focus(function () { $(document.body).addClass('when-keyboard-showing'); });
+    $("input, textarea").blur(function () { $(document.body).removeClass('when-keyboard-showing'); });
 
     $('#answer-input').keypress((e) => {
         const key = e.which;
