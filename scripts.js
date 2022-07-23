@@ -107,8 +107,14 @@ function setCircleDasharray() {
 }
 
 $(function () {
-    $(".readonly").click((e) => {
-        e.preventDefault();
+    $(document).on(`focus`, `input`, function () {
+        myEl = $(this);
+        setTimeout(function () {
+            myEl.attr(`inputmode`, ``);
+        }, 1);
+    });
+    $(document).on(`blur`, `input`, function () {
+        $(this).attr(`inputmode`, `none`);
     });
 
     $('#answer-input').keypress((e) => {
