@@ -42,11 +42,6 @@ body {
   text-align: center;
 }
 
-#answer-area {
-  position: fixed;
-  bottom: 0px;
-}
-
 .base-timer {
   position: relative;
   width: 100px;
