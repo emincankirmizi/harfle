@@ -10,7 +10,7 @@ let timer = document.querySelector("#base-timer-path-remaining");
 let timeLabel = document.getElementById("base-timer-label");
 
 //Time related vars
-const TIME_LIMIT = 3; //in seconds
+const TIME_LIMIT = 5; //in seconds
 let timePassed = 1;
 let timeLeft = TIME_LIMIT;
 let timerInterval = null;
