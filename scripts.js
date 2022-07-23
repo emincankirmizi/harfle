@@ -87,7 +87,7 @@ function timeIsUp() {
     });
 
     $(".share").on("click", async function () {
-        const text = `Harf Zaman Sonuç
+        const text = `Harf Zamanı Sonuç
 Level: ${level}
 Son kelime: ${answers.pop()}
 Skor: ${score}
