@@ -106,7 +106,6 @@ https://emincankirmizi.github.io/harfle/
             navigator.share({
                 title: 'Harf Zamanı Sonuç',
                 text,
-                url: "https://emincankirmizi.github.io/harfle"
             });
 
         } else {
