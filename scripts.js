@@ -130,7 +130,7 @@ $(function () {
         }
 
         // if ($('#answer-input').val().length < 10) {
-        //     $('#answer-input').val($('#answer-input').val() + e.target.innerHTML);
+        $('#answer-input').val($('#answer-input').val() + e.target.innerHTML);
         // }
     });
 
