@@ -166,7 +166,7 @@ const sendAnswer = () => {
         return;
     }
 
-    if (answer.length > 6) {
+    if (answer.length > 10) {
         toastr.error('Girdiğiniz kelime en fazla 6 harf içermelidir.')
         return;
     }
