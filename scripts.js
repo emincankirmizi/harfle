@@ -57,7 +57,7 @@ window.addEventListener("load", () => {
 
 function timeIsUp() {
     clearInterval(timerInterval);
-
+    console.timeEnd('test');
     $("#answer-input").val("");
     $("#answer-input").blur();
 
@@ -224,7 +224,7 @@ const sendAnswer = () => {
             $('#score > h2').text(`Skor: ${score}`);
 
             reset();
-            start();
+            startTimer();
         });
 };
 
