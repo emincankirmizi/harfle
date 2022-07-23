@@ -95,8 +95,8 @@ body {
 }
 
 .square {
-  height: 50px;
-  width: 50px;
+  height: 40px;
+  width: 40px;
   border-color: #555;
   border-style: solid;
   border-color: #555;
@@ -136,7 +136,7 @@ body {
 }
 
 input[type="text"] {
-  width: 200px;
+  width: 240px;
   border: 2px solid #aaa;
   border-radius: 4px;
   margin: 8px 0;
@@ -159,6 +159,7 @@ input[type="text"]:focus {
   box-sizing: border-box;
   padding: 8px;
   cursor: pointer;
+  width: 80px;
 }
 
 .popup-overlay {
