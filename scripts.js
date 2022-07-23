@@ -129,9 +129,9 @@ $(function () {
             return $('#answer-input').val($('#answer-input').val().slice(0, -1));
         }
 
-        if ($('#answer-input').val().length < 6) {
-            $('#answer-input').val($('#answer-input').val() + e.target.innerHTML);
-        }
+        // if ($('#answer-input').val().length < 10) {
+        //     $('#answer-input').val($('#answer-input').val() + e.target.innerHTML);
+        // }
     });
 
     setRandomLetter(alphabet);
@@ -156,7 +156,7 @@ const sendAnswer = () => {
     }
 
     if (answer.length > 10) {
-        toastr.error('Girdiğiniz kelime en fazla 6 harf içermelidir.')
+        toastr.error('Girdiğiniz kelime en fazla 10 harf içermelidir.')
         return;
     }
 
@@ -203,7 +203,7 @@ const sendAnswer = () => {
             </div>`);
 
 
-            if ($('#correct-answers').find('.word').length > 3) {
+            if ($('#correct-answers').find('.word').length > 4) {
                 $('#correct-answers').find('div').first().remove();
             }
 
