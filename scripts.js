@@ -110,6 +110,7 @@ https://emincankirmizi.github.io/harfle/
 
         } else {
             navigator.clipboard.writeText(text);
+            toastr.info('Kopyalandı.')
         }
     });
 }
@@ -174,7 +175,7 @@ const sendAnswer = () => {
 
     if (randomLetters.length === 1) {
         if (!answer.startsWith(randomLetters[0])) {
-            toastr.error('Lütfen seçili kelime ile başlayın.');
+            toastr.error('Kelime, seçili harfleri içermiyor.');
             return;
         }
     } else {
@@ -182,7 +183,10 @@ const sendAnswer = () => {
             return answer.includes(randomLetter)
         });
 
-        if (!isValid) return false;
+        if (!isValid) {
+            toastr.error('Kelime, seçili harfleri içermiyor.');
+            return;
+        };
     }
 
     if (answer.length < 2) {
