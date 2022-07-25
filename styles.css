@@ -1,7 +1,7 @@
 html,
 body {
   margin: 0;
-  height: 100vh;
+  height: 100%;
 }
 
 body {
@@ -51,8 +51,7 @@ body {
 }
 
 #answer-area {
-  position: fixed;
-  bottom: 0px;
+  margin-bottom: 5px;
 }
 
 #selected-letter,

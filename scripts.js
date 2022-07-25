@@ -22,6 +22,7 @@ $(() => {
     addEventListeners();
 
     window.onresize = function (event) {
+        score = 'resize';
         const w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
         const h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
         $("html, body").css({ "width": w, "height": h });
@@ -115,7 +116,7 @@ const sendAnswer = () => {
     let answer = $('#answer-input').val().toLowerCase();
 
     isValid = isAnswerValid(answer);
-
+    console.log(isValid)
     if (!isValid) return;
 
     fetch(`https://sozluk.gov.tr/gts?ara=${answer}`)
@@ -226,6 +227,7 @@ const closeModal = () => {
     $('#score > p').text(`Skor: ${score}`);
     setRandomLetter(alphabet);
     resetTimer();
+    gameStatus = 'continue';
 };
 
 const addEventListeners = () => {
