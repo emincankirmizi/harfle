@@ -51,6 +51,7 @@ body {
 }
 
 #answer-area {
+  position: fixed;
   bottom: 0px;
 }
 

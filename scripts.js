@@ -21,21 +21,11 @@ $(() => {
     initialPage();
     addEventListeners();
 
-    var orientationChange = function () {
-        var $element = $('html');
-        $element.css('height', '100vh'); // Change this to your own original vh value.
-        $element.css('height', $element.height() + 'px');
-    };
-
-    var s = screen;
-    var o = s.orientation || s.msOrientation || s.mozOrientation;
-    o.addEventListener('change', function () {
-        console.log('hey');
-        setTimeout(function () {
-            orientationChange();
-        }, 250);
-    }, false);
-    orientationChange();
+    window.onresize = function (event) {
+        const w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+        const h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+        $("html, body").css({ "width": w, "height": h });
+    }
 });
 
 const resetTimer = () => {
