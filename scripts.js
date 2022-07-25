@@ -2,10 +2,12 @@ const FULL_DASH_ARRAY = 283;
 const RESET_DASH_ARRAY = `-57 ${FULL_DASH_ARRAY}`;
 const alphabet = "abcçdefghıijklmnoöprsştuüvyz".split("");
 
+let dailyWords = [];
 let answers = [];
 let score = 0;
 let randomLetter = [];
 let level = 1;
+let selectedMode = 1;
 //DOM elements
 let timer = document.querySelector("#base-timer-path-remaining");
 let timeLabel = document.getElementById("base-timer-label");
@@ -15,6 +17,39 @@ const TIME_LIMIT = 5; //in seconds
 let timePassed = 1;
 let timeLeft = TIME_LIMIT;
 let timerInterval = null;
+
+$(function () {
+    initialPage();
+
+    $('#answer-input').keypress((e) => {
+        const key = e.which;
+
+        if (key == 13) {
+            sendAnswer();
+        }
+    });
+
+    $("#answer-button").click((e) => {
+        sendAnswer();
+    });
+
+    $(".keyboard-button").click((e) => {
+
+        if (e.target.innerHTML === '⤾') {
+            return sendAnswer();
+        }
+
+        if (e.target.innerHTML === '⟵') {
+            return $('#answer-input').val($('#answer-input').val().slice(0, -1));
+        }
+
+        // if ($('#answer-input').val().length < 10) {
+        $('#answer-input').val($('#answer-input').val() + e.target.innerHTML);
+        // }
+    });
+
+    // setRandomLetter(alphabet);
+});
 
 function reset() {
     clearInterval(timerInterval);
@@ -57,7 +92,7 @@ window.addEventListener("load", () => {
 });
 
 function timeIsUp() {
-    clearInterval(timerInterval);
+    reset();
 
     $("#answer-input").val("");
     $("#answer-input").blur();
@@ -77,23 +112,26 @@ function timeIsUp() {
     `);
 
     $(".close").on("click", function () {
-        $(".popup, .popup-content, .popup-overlay, .word").remove();
-        score = 0;
-        answers = [];
-        level = 1;
-        timeLabel.innerHTML = formatTime(TIME_LIMIT);
-        $('#score > p').text(`Skor: ${score}`);
-        setRandomLetter(alphabet);
+        closeModal();
+        initialPage();
     });
 
     $(".share").on("click", async function () {
-        const text = `Harf Zamanı Sonuç
+        let text = '';
+        if (selectedMode === 1) {
+            text = `Harf Zamanı Sonuç (Serbest Mod)
 Level: ${level}
 Son kelime: ${answers[answers.length - 1]}
 Skor: ${score}
 Seçili harf: ${randomLetters.join(" - ")}
 https://emincankirmizi.github.io/harfle/
-        `;
+`;
+        } else if (selectedMode === 2) {
+            text = `Harf Zamanı Sonuç (Günlük Mod)
+Deneme: ${score}
+https://emincankirmizi.github.io/harfle/
+`;
+        }
 
         window.mobileAndTabletCheck = function () {
             let check = false;
@@ -139,37 +177,6 @@ function setCircleDasharray() {
     timer.setAttribute("stroke-dasharray", circleDasharray);
 }
 
-$(function () {
-    $('#answer-input').keypress((e) => {
-        const key = e.which;
-
-        if (key == 13) {
-            sendAnswer();
-        }
-    });
-
-    $("#answer-button").click((e) => {
-        sendAnswer();
-    });
-
-    $(".keyboard-button").click((e) => {
-
-        if (e.target.innerHTML === '⤾') {
-            return sendAnswer();
-        }
-
-        if (e.target.innerHTML === '⟵') {
-            return $('#answer-input').val($('#answer-input').val().slice(0, -1));
-        }
-
-        // if ($('#answer-input').val().length < 10) {
-        $('#answer-input').val($('#answer-input').val() + e.target.innerHTML);
-        // }
-    });
-
-    setRandomLetter(alphabet);
-});
-
 const sendAnswer = () => {
     let answer = $('#answer-input').val().toLowerCase();
 
@@ -177,6 +184,14 @@ const sendAnswer = () => {
         if (!answer.startsWith(randomLetters[0])) {
             toastr.error('Kelime, seçili harfleri içermiyor.');
             return;
+        }
+
+        if (selectedMode === 2 && !answers.length) {
+            console.log(dailyWords, answer);
+            if (dailyWords.includes(answer)) {
+                toastr.error('İlk kelimeniz bulunacak kelimelerden biri olamaz.');
+                return;
+            }
         }
     } else {
         const isValid = randomLetters.every((randomLetter) => {
@@ -187,11 +202,6 @@ const sendAnswer = () => {
             toastr.error('Kelime, seçili harfleri içermiyor.');
             return;
         };
-    }
-
-    if (answer.length < 2) {
-        toastr.error('Girdiğiniz kelime en az 2 harf içermelidir.')
-        return;
     }
 
     if (answer.length < 2) {
@@ -212,6 +222,19 @@ const sendAnswer = () => {
     if (!answer) {
         toastr.error('Lütfen bir kelime giriniz.')
         return;
+    }
+
+    if (selectedMode === 2 && dailyWords.includes(answer)) {
+        dailyWords = dailyWords.filter(dailyWord => {
+            return dailyWord !== answer;
+        });
+
+        $('#daily-letters > p').text(`Bulunacak Kelimeler: ${dailyWords.join(', ')}`);
+
+        if (!dailyWords.length) {
+            timeIsUp();
+            return;
+        }
     }
 
     fetch(`https://sozluk.gov.tr/gts?ara=${answer}`)
@@ -255,7 +278,7 @@ const sendAnswer = () => {
 
             score += 1;
 
-            if (score === 14) {
+            if (score === 14 && selectedMode === 1) {
                 level = 2;
             }
 
@@ -281,4 +304,51 @@ const setRandomLetter = (answerArray, randomIndex) => {
     $('#selected-letter > p').text(`Seçilen Harf: ${randomLetters.join(" - ").toLowerCase()}`);
 
     return randomIndexes;
+};
+
+const initialPage = () => {
+    $('#main').append(`
+    <div class="popup-overlay">
+    </div>
+
+    <div class="popup-content">
+        <h2>Hoşgeldin!</h2>
+        <p>Aşağıdan oyun modunu seçebilirsin.</p>
+        <div id="game-over-buttons">
+            <button id="daily-mode" class="close">Günlük Mod</button>  
+            <button id="free-mode" class="share">Serbest Mod</button>    
+        </div>
+    </div>
+    `);
+
+    $("#daily-mode").on("click", function () {
+        selectedMode = 2;
+
+        const initialDate = new Date('7/23/2022');
+        const currentDate = new Date();
+        const diffTime = Math.abs(currentDate - initialDate);
+        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+        console.log(diffDays);
+        dailyWords = [WORDS[diffDays], WORDS[diffDays + 1]];
+
+        $('#daily-letters > p').text(`Bulunacak Kelimeler: ${dailyWords.join(', ')}`);
+
+        closeModal();
+    });
+
+    $("#free-mode").on("click", async function () {
+        selectedMode = 1;
+        closeModal();
+    });
+};
+
+const closeModal = () => {
+    $(".popup, .popup-content, .popup-overlay, .word").remove();
+    score = 0;
+    answers = [];
+    level = 1;
+    timeLabel.innerHTML = formatTime(TIME_LIMIT);
+    $('#score > p').text(`Skor: ${score}`);
+    setRandomLetter(alphabet);
+    reset();
 };

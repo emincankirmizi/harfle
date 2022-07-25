@@ -51,6 +51,7 @@ body {
 }
 
 #selected-letter,
+#daily-letters,
 #score {
   font-size: 20px;
   font-weight: bold;
@@ -149,7 +150,6 @@ body {
 }
 
 .keyboard-button {
-  text-transform: uppercase;
   font-family: inherit;
   font-weight: bold;
   border: 2px solid black;
@@ -231,8 +231,10 @@ input[type="text"]:focus {
   }
 
   #selected-letter,
+  #daily-letters,
   #score {
     font-size: 16px;
+    text-align: center;
   }
 
   .base-timer {
