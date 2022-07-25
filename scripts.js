@@ -402,7 +402,7 @@ const correctAnswerSteps = (answer) => {
 
     score += 1;
 
-    if (score === 4 && selectedMode === 'freeMode') {
+    if (score === 14 && selectedMode === 'freeMode') {
         level = 2;
     }
 

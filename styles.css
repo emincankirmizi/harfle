@@ -50,6 +50,10 @@ body {
   text-align: center;
 }
 
+#answer-area {
+  bottom: 0px;
+}
+
 #selected-letter,
 #daily-letters,
 #score {
