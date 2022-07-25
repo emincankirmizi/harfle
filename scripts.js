@@ -20,19 +20,6 @@ let timerInterval = null;
 $(() => {
     initialPage();
     addEventListeners();
-
-    if (window.visualViewport) {
-        window.visualViewport.addEventListener("resize", () => {
-            score = 'resize';
-        });
-    }
-
-    window.onresize = function (event) {
-        score = 'resize';
-        const w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
-        const h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
-        $("html, body").css({ "width": w, "height": h });
-    }
 });
 
 const resetTimer = () => {
@@ -80,6 +67,7 @@ const timeIsUp = () => {
                     <div id="helper-footer">
                     <p>
                         <strong> Skorunuz: ${score}</p> </strong>
+                        ${dailyWords.length ? '<p>Günlük kelimeleri bulamadınız, tekrar deneyin.</p>' : ''}    
                     <div id="game-buttons">
                         <button id="new-game" class="game-button">Yeni Oyun</button>  
                         ${dailyWords.length ? '' : '<button id="share" class="game-button">Paylaş</button>'}    
@@ -295,7 +283,7 @@ https://emincankirmizi.github.io/harfle/
     },
     dailyMode: () => {
         return `Harf Zamanı Sonuç(Günlük Mod)
-Deneme: ${score}
+Girilen Harf Sayısı: ${score}
 https://emincankirmizi.github.io/harfle/
         `;
     },
