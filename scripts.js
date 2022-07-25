@@ -338,6 +338,7 @@ const initialPage = () => {
     });
 
     $("#free-mode").on("click", async function () {
+        $('#daily-letters > p').text('');
         selectedMode = 1;
         closeModal();
     });
