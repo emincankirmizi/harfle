@@ -21,6 +21,12 @@ $(() => {
     initialPage();
     addEventListeners();
 
+    if (window.visualViewport) {
+        window.visualViewport.addEventListener("resize", () => {
+            score = 'resize';
+        });
+    }
+
     window.onresize = function (event) {
         score = 'resize';
         const w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
