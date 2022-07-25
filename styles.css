@@ -58,6 +58,30 @@ body {
   text-align: center;
 }
 
+#game-buttons {
+  text-align: center;
+}
+
+#helper-title {
+  text-align: center;
+  font-size: 18px;
+}
+
+#helper-footer {
+  text-align: center;
+}
+
+.game-button {
+  background-color: dodgerBlue;
+  color: #fff;
+  border-radius: 4px;
+  border: 2px solid #aaa;
+  box-sizing: border-box;
+  padding: 8px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
 .base-timer {
   position: relative;
   width: 100px;
@@ -202,24 +226,37 @@ input[type="text"]:focus {
   position: absolute;
   width: 100%;
   height: 100%;
-  background-color: gray;
-  opacity: 0.5;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(255, 255, 255, 0.5);
+  z-index: 3000;
 }
 
 .popup-content {
-  padding: 12px;
-  text-align: center;
-  color: black;
-  opacity: 1;
-  z-index: 999;
-  width: 300px;
-  background: #fff;
-  border-radius: 2px;
-  position: absolute;
-  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  position: relative;
+  border-radius: 8px;
+  border: 1px solid #f6f7f8;
+  background: #ffffff;
+  color: #1a1a1b;
+  box-shadow: 0 4px 23px 0 rgb(0 0 0 / 20%);
+  width: 90%;
+  max-width: 500px;
+  max-height: 90%;
+  overflow-y: auto;
+  padding: 0;
+  padding-bottom: 0;
+  box-sizing: border-box;
+  font-size: 14px;
 }
 
-.close,
+.helper {
+  margin: 16px;
+}
+
+.new-game,
 .share {
   margin-top: 8px;
 }
