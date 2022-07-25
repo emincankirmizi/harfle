@@ -298,9 +298,9 @@ input[type="text"]:focus {
 
 @media only screen and (min-device-width: 376px) and (max-device-width: 420px) {
   .square {
-    height: 1px;
-    width: 20px;
-    font-size: 12px;
+    height: 22px;
+    width: 22px;
+    font-size: 16px;
   }
 
   #selected-letter,
