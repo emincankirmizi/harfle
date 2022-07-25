@@ -67,10 +67,10 @@ const timeIsUp = () => {
                     <div id="helper-footer">
                     <p>
                         <strong> Skorunuz: ${score}</p> </strong>
-                        ${dailyWords.length ? '<p>Günlük kelimeleri bulamadınız, tekrar deneyin.</p>' : ''}    
+                        ${selectedMode === 'dailyMode' && dailyWords.length ? '<p>Günlük kelimeleri bulamadınız, tekrar deneyin.</p>' : ''}    
                     <div id="game-buttons">
                         <button id="new-game" class="game-button">Yeni Oyun</button>  
-                        ${dailyWords.length ? '' : '<button id="share" class="game-button">Paylaş</button>'}    
+                        ${selectedMode === 'dailyMode' && dailyWords.length ? '' : '<button id="share" class="game-button">Paylaş</button>'}    
                     </div >
                     </div>
                 </div>
@@ -195,7 +195,7 @@ const initialPage = () => {
         const currentDate = new Date();
         const diffTime = Math.abs(currentDate - initialDate);
         const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-        console.log(diffDays);
+
         dailyWords = [WORDS[diffDays], WORDS[diffDays + 1]];
 
         $('#daily-letters > p').text(`Bulunacak Kelimeler: ${dailyWords.join(', ')}`);
