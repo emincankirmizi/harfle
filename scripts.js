@@ -83,7 +83,7 @@ const timeIsUp = () => {
         initialPage();
     });
 
-    $(".share").on("click", async () => {
+    $("#share").on("click", async () => {
         shareResult();
     });
 }
