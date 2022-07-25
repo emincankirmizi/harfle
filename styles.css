@@ -21,6 +21,7 @@ body {
 #title {
   text-align: center;
   width: 100%;
+  border-bottom: 1px solid black;
 }
 
 #title > p {
@@ -73,6 +74,10 @@ body {
 
 #helper-footer {
   text-align: center;
+}
+
+#app {
+  margin-bottom: 1em;
 }
 
 .game-button {
@@ -267,9 +272,35 @@ input[type="text"]:focus {
 
 @media only screen and (max-device-width: 375px) {
   .square {
+    height: 16px;
+    width: 16px;
+    font-size: 12px;
+  }
+
+  #selected-letter,
+  #daily-letters,
+  #score {
+    font-size: 14px;
+    text-align: center;
+  }
+
+  .base-timer {
+    width: 60px;
+    height: 60px;
+  }
+
+  .base-timer__label {
+    width: 60px;
+    height: 60px;
+    font-size: 16px;
+  }
+}
+
+@media only screen and (min-device-width: 376px) and (max-device-width: 400px) {
+  .square {
     height: 20px;
     width: 20px;
-    font-size: 16px;
+    font-size: 12px;
   }
 
   #selected-letter,
