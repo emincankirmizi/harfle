@@ -106,9 +106,9 @@ function timeIsUp() {
         <p>Skorunuz -> ${score}</p>
         <div id="game-over-buttons">
             <button class="close">Yeni Oyun</button>  
-            <button class="share">Paylaş</button>    
-        </div>
-    </div>
+            ${dailyWords.length ? '' : '<button class="share">Paylaş</button>'}    
+        </div >
+    </div >
     `);
 
     $(".close").on("click", function () {
@@ -119,7 +119,7 @@ function timeIsUp() {
     $(".share").on("click", async function () {
         let text = '';
         if (selectedMode === 1) {
-            text = `Harf Zamanı Sonuç (Serbest Mod)
+            text = `Harf Zamanı Sonuç(Serbest Mod)
 Level: ${level}
 Son kelime: ${answers[answers.length - 1]}
 Skor: ${score}
@@ -127,7 +127,7 @@ Seçili harf: ${randomLetters.join(" - ")}
 https://emincankirmizi.github.io/harfle/
 `;
         } else if (selectedMode === 2) {
-            text = `Harf Zamanı Sonuç (Günlük Mod)
+            text = `Harf Zamanı Sonuç(Günlük Mod)
 Deneme: ${score}
 https://emincankirmizi.github.io/harfle/
 `;
@@ -161,7 +161,7 @@ function resetVars() {
 }
 
 function formatTime(time) {
-    return `${time}s`;
+    return `${time} s`;
 }
 
 function calculateTimeFraction() {
@@ -172,7 +172,8 @@ function calculateTimeFraction() {
 function setCircleDasharray() {
     const circleDasharray = `${(
         calculateTimeFraction() * FULL_DASH_ARRAY
-    ).toFixed(0)} 283`;
+    ).toFixed(0)
+        } 283`;
 
     timer.setAttribute("stroke-dasharray", circleDasharray);
 }
@@ -229,7 +230,7 @@ const sendAnswer = () => {
             return dailyWord !== answer;
         });
 
-        $('#daily-letters > p').text(`Bulunacak Kelimeler: ${dailyWords.join(', ')}`);
+        $('#daily-letters > p').text(`Bulunacak Kelimeler: ${dailyWords.join(', ')} `);
 
         if (!dailyWords.length) {
             timeIsUp();
